@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Yoqubov FF Settings</title>
+
+<style>
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:url('https://images.unsplash.com/photo-1542751371-adc38448a05e') no-repeat center/cover;
+  color:white;
+  text-align:center;
+}
+
+.overlay{
+  background:rgba(0,0,0,0.75);
+  min-height:100vh;
+  padding:20px;
+}
+
+h1{
+  color:#00ffd5;
+  animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{ text-shadow:0 0 5px #00ffd5; }
+  to{ text-shadow:0 0 25px #00ffd5; }
+}
+
+.btn{
+  padding:12px 22px;
+  margin:6px;
+  border:none;
+  border-radius:10px;
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+  font-size:15px;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 15px #00ffd5;
+}
+
+.green{background:#00c853;}
+.blue{background:#2979ff;}
+.red{background:#ff1744;}
+
+.card{
+  background:rgba(0,0,0,0.7);
+  padding:15px;
+  margin:15px;
+  border-radius:10px;
+}
+
+input{
+  padding:10px;
+  width:80%;
+  border-radius:8px;
+  border:none;
+}
+
+button{
+  margin-top:10px;
+  padding:10px 20px;
+  border:none;
+  border-radius:8px;
+  background:#00c853;
+  color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+<h1>🔥 YOQUBOV FF 🔥</h1>
+
+<!-- TUGMALAR -->
+<button class="btn green" onclick="oddiy()">🟢 Oddiy</button>
+<button class="btn blue" onclick="pro()">🔵 Pro</button>
+<button class="btn red" onclick="ultra()">🔴 Ultra</button>
+
+<!-- INPUT -->
+<div class="card">
+📱 Telefon nomini yoz<br><br>
+<input id="tel" placeholder="Masalan: Samsung, iPhone"><br>
+<button onclick="topish()">Topish</button>
+</div>
+
+<!-- NATIJA -->
+<div id="natija"></div>
+
+<!-- STAT -->
+<div class="card">
+👥 Foydalanuvchilar: <span id="users">5777696543</span><br>
+🟢 Online: <span id="online">657875</span><br>
+📦 Buyurtma: 55332
+</div>
+
+<!-- FEATURE -->
+<div class="card">
+🔥 Bizda bor:<br><br>
+✔ Headshot settings<br>
+✔ Gun info<br>
+✔ Almaz sotuv<br>
+✔ Ultra config
+</div>
+
+<!-- PROMO -->
+<div class="card">
+💎 AKSIYA 💎<br><br>
+110 💎 = 16 000 so‘m<br>
+341 💎 = 40 000 so‘m<br><br>
+📩 @xyoqubov ga yozing
+</div>
+
+</div>
+
+<script>
+
+// SETTINGS TOPISH
+function topish(){
+  let tel = document.getElementById("tel").value;
+
+  if(tel==""){
+    alert("Telefon nomini yoz!");
+    return;
+  }
+
+  navigator.vibrate(100);
+
+  document.getElementById("natija").innerHTML =
+  `<div class="card">⏳ Yuklanmoqda...</div>`;
+
+  setTimeout(() => {
+
+    let general = Math.floor(Math.random()*15)+85;
+    let red = Math.floor(Math.random()*15)+80;
+    let x2 = Math.floor(Math.random()*15)+75;
+    let x4 = Math.floor(Math.random()*15)+70;
+    let awm = Math.floor(Math.random()*15)+65;
+    let freeLock = Math.floor(Math.random()*15)+60;
+
+    document.getElementById("natija").innerHTML = `
+    <div class="card">
+    🔥 ${tel} uchun settings:<br><br>
+    General: ${general}<br>
+    Red Dot: ${red}<br>
+    2x: ${x2}<br>
+    4x: ${x4}<br>
+    AWM: ${awm}<br>
+    Free Look: ${freeLock}
+    </div>`;
+
+  }, 1500);
+}
+
+// ODDIY (reklama bilan)
+function oddiy(){
+  navigator.vibrate(100);
+
+  document.getElementById("natija").innerHTML =
+  `<div class="card">📺 Reklama ko‘rilmoqda...</div>`;
+
+  // REKLAMA LINK (keyin almashtirasan)
+  window.open("https://example.com", "_blank");
+
+  setTimeout(() => {
+    document.getElementById("natija").innerHTML =
+    `<div class="card">🟢 Oddiy settings:<br>General: 90</div>`;
+  }, 4000);
+}
+
+// PRO
+function pro(){
+  navigator.vibrate(100);
+
+  document.getElementById("natija").innerHTML =
+  `<div class="card">🔵 Pro olish uchun:<br>@xyoqubov</div>`;
+}
+
+// ULTRA
+function ultra(){
+  navigator.vibrate(100);
+
+  document.getElementById("natija").innerHTML =
+  `<div class="card">🔴 Ultra olish uchun:<br>@xyoqubov</div>`;
+}
+
+// LIVE COUNTER
+setInterval(() => {
+  let users = document.getElementById("users");
+  let online = document.getElementById("online");
+
+  users.innerText = parseInt(users.innerText) + Math.floor(Math.random()*3);
+  online.innerText = parseInt(online.innerText) + Math.floor(Math.random()*2 -1);
+
+}, 3000);
+
+</script>
+
+</body>
+  </html>
